@@ -10,4 +10,9 @@ class Size extends Model
         'product_id',
         'size'
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }
