@@ -1,0 +1,20 @@
+{
+  "name": "ecommerce",
+  "description": "",
+  "main": "",
+  "authors": [
+    "letuan1999v5 <letuan1999v5@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/letuan1999v5/php_oe28_ecom",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.5.0"
+  }
+}
