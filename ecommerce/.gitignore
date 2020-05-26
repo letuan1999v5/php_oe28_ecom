@@ -10,3 +10,8 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+/bower_components
+public/js
+public/css
+public/img
+/public/bower_components
