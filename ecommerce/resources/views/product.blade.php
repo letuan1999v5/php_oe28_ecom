@@ -1,5 +1,3 @@
-{{--@extends('layouts.app');--}}
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -26,8 +24,6 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
 
-
-
 </head>
 
 <body>
@@ -48,7 +44,7 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <form id="logout-form" class="logout-button" method="POST" action="{{ route('logout') }}" >
+                    <form id="logout-form" class="logout-button" method="POST" action="{{ route('logout') }}">
                         <button type="submit" class="top-right"> {{ trans('message.logout') }}</button>
                         @csrf
                     </form>
@@ -111,99 +107,47 @@
                             <li><a href="#"> {{ trans('message.kid') }}</a></li>
                         </ul>
                     </li>
-                    {{--                    <li><a href="./blog.html">Blog</a></li>--}}
                     <li><a href="./contact.html">{{ trans('message.contact') }}</a></li>
                 </ul>
             </nav>
             <div id="mobile-menu-wrap"></div>
         </div>
     </div>
+
 </header>
-<!-- Header End -->
 
-<!-- Hero Section Begin -->
-<section class="hero-section">
-    <div class="hero-items owl-carousel">
-        <div class="single-hero-items set-bg" data-setbg="img/banners/banner-1.png">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <span>{{ trans('message.big_sale') }}</span>
-                        <h1>{{ trans('message.black_friday') }}</h1>
-                        <p>{{ trans('message.black_friday_detail') }}</p>
-                        <a href="#" class="primary-btn">{{ trans('message.shop_now') }}</a>
+<div>
+    @foreach ($products as $product)
+        @foreach ($product->images->take(1) as $image)
+            <div class="banner-section spad">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="single-banner">
+                                <img src="{{ asset($image->image) }}" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            {{ $product->description }}
+                        </div>
                     </div>
                 </div>
-                <div class="off-card">
-                    <h2> {{ trans('message.sale') }} <span>30%</span></h2>
-                </div>
+                <h4 class="name-title"> {{ $product->name }}</h4>
             </div>
-        </div>
-        <div class="single-hero-items set-bg" data-setbg="img/banners/banner-2.png">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <span>{{ trans('message.big_sale') }}</span>
-                        <h1>{{ trans('message.black_friday') }}</h1>
-                        <p>{{ trans('message.black_friday_details') }}</p>
-                        <a href="#" class="primary-btn">{{ trans('message.shop') }}</a>
-                    </div>
-                </div>
-                <div class="off-card">
-                    <h2> {{ trans('message.sale') }} <span>50%</span></h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
 
-<!-- Banner Section Begin -->
-{{--@foreach(@)--}}
+        @endforeach
+    @endforeach
 
-<div class="banner-section spad">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="single-banner">
-                    <img src="img/banners/men-banner.jpg" alt="">
-                    <div class="inner-text">
-                        <h4> {{ trans('message.men') }}</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-banner">
-                    <img src="{{asset('img/banners/women-banner.jpg')}}" alt="">
-                    <div class="inner-text">
-                        <h4>{{ trans('message.women') }}</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="single-banner">
-                    <img src="img/banners/kid-banner.jpg" alt="">
-                    <div class="inner-text">
-                        <h4> {{trans('message.kid')}}</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Banner Section End -->
-
-<script src="{{ asset('bower_components/demo-bower/js/jquery-3.3.1.min.js') }}"></script>
-<script src="{{ asset('bower_components/demo-bower/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('bower_components/demo-bower/js/jquery-ui.min.js') }}"></script>
-<script src="{{ asset('bower_components/demo-bower/js/jquery.countdown.min.js') }}"></script>
-<script src="{{ asset('bower_components/demo-bower/js/jquery.nice-select.min.js') }}"></script>
-<script src="{{ asset('bower_components/demo-bower/js/jquery.zoom.min.js') }}"></script>
-<script src="{{ asset('bower_components/demo-bower/js/jquery.dd.min.js') }}"></script>
-<script src="{{ asset('bower_components/demo-bower/js/jquery.slicknav.js') }}"></script>
-<script src="{{ asset('bower_components/demo-bower/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('bower_components/demo-bower/js/main.js') }}"></script>
-<script src="{{ asset('bower_components/demo-bower/js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('bower_components/demo-bower/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('bower_components/demo-bower/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bower_components/demo-bower/js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('bower_components/demo-bower/js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('bower_components/demo-bower/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('bower_components/demo-bower/js/jquery.zoom.min.js') }}"></script>
+    <script src="{{ asset('bower_components/demo-bower/js/jquery.dd.min.js') }}"></script>
+    <script src="{{ asset('bower_components/demo-bower/js/jquery.slicknav.js') }}"></script>
+    <script src="{{ asset('bower_components/demo-bower/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('bower_components/demo-bower/js/main.js') }}"></script>
+    <script src="{{ asset('bower_components/demo-bower/js/imagesloaded.pkgd.min.js') }}"></script>
 </body>
 
-</html>
